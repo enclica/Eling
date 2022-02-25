@@ -28,7 +28,7 @@ init new button = %button;
         };
 
 
-window.add(%button)
+window.add(%button);
 
 )
 

@@ -8,8 +8,17 @@ explicit class Main(){
     Operation Main(){
         init new weboperator = %web;
 
-        
 
+      ##  weboperator.add_page(new webpage("index.html", "index.html"));
+          init new html = %html;
+          html.container[0].is("html");
+          
+            html.container[0].add_child(new html_head("head"));
+            html.container[0].add_child(new html_body("body"));
+            html.container[0].add_child(new html_div("div"));
+            html.container[0].add_child(new html_footer("footer"));
+
+          weboperator.addrawhtml(%html);
 
     }
 }
