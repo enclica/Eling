@@ -1,0 +1,36 @@
+
+:EXPLICIT-PLAT Win
+Include sys.win; //THIS IS A WINDOWS SPECIFIC LIB, THIS WOULD NOT WORK IN CROSS COMPATIBLE MODE.
+
+Include uni.form.win;
+Include uni.mob.activity;
+
+Include uni.controls.universal;
+
+
+explicit class Main(){
+
+
+Operation Main(arg[]){
+
+init String = %hello;
+
+
+init new win = %window;
+init new button = %button;
+        %button.text = "Hello World";
+        %button.x = 100;
+        %button.y = 100;
+        %button.width = 100;
+        %button.height = 100;
+        %button.onClick = Operation(){
+            print("Hello World");
+        };
+
+
+window.add(%button)
+
+)
+
+}
+}

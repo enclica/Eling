@@ -1,0 +1,21 @@
+Include uni.containers;
+Include uni.controls.universal;
+
+
+
+explicit class Main(){
+
+    Operation Main(){
+        init new Container = %window;
+        init new button = %button;
+        %button.text = "Hello World";
+        %button.x = 100;
+        %button.y = 100;
+        %button.width = 100;
+        %button.height = 100;
+        %button.onClick = Operation(){
+            print("Hello World");
+        };
+        %window.add(%button);
+    }
+}

@@ -1,0 +1,15 @@
+:EXPLICIT-PLAT Web
+
+Include eling.web.standard;
+
+Include elingtoweb;
+
+explicit class Main(){
+    Operation Main(){
+        init new weboperator = %web;
+
+        
+
+
+    }
+}
