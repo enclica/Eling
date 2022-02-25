@@ -1,4 +1,4 @@
-[](assets/image-rescources/Eling.png)
+[](/assets/image-rescources/Eling.png)
 
 # Eling. (NO COMPILER IN SRC THIS IS AN EARLY A BASE)
 eling is a language that is made to be simple but powerful with the ability to be used crossplatform or nor.
@@ -11,6 +11,13 @@ But with 'if' you can use 'if' and 'switch' is the same.
 ### How do start using eling.
 
 To start you need a Main file for example Main.eling is what all compilers look for at first and you can use Main to refrence other eling files and they can refrence more and if a file is not being used at all the compiler ignores it and puts out a warning saying that it is not in use.
+
+### Config file
+
+Eling has a config for each project which has refrences and packages and other things that are needed to run the project.
+
+you need to the the config.elconf file which is the eling config file for projects many projects using default libs will be blank meaning no config needed but compiling will create a secondary config which is used for publishing.
+The publishing file is the comp.elconf file which is the compiler config file.
 
 ## Compiler flags
 
