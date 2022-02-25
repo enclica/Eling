@@ -1,4 +1,4 @@
-[](/assets/image-rescources/Eling.png)
+![](/assets/image-rescources/Eling.png)
 
 # Eling. (NO COMPILER IN SRC THIS IS AN EARLY A BASE)
 eling is a language that is made to be simple but powerful with the ability to be used crossplatform or nor.
