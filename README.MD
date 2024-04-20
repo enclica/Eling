@@ -1,4 +1,4 @@
-![](/assets/image-rescources/Eling.png)
+![](/assets/image-resources/Eling.png)
 
 # Eling. 
 eling is a language that is made to be simple but powerful with the ability to be used crossplatform or nor.
