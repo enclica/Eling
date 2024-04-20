@@ -18,6 +18,12 @@ You can build eling with the make file under src/Compiler where you can fo
 
 To start you need a Main file for example Main.eling is what all compilers look for at first and you can use Main to refrence other eling files and they can refrence more and if a file is not being used at all the compiler ignores it and puts out a warning saying that it is not in use.
 
+# Usage syntax
+./compiler <input_file.eling> <output_file_binary>
+
+# Example command
+./compiler example.eling example.cpp
+
 ### Config file
 
 Eling has a config for each project which has refrences and packages and other things that are needed to run the project.

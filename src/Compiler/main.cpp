@@ -20,7 +20,7 @@ public:
         }
     }
 
-    std::string getCompilerCommand() {
+    std::string getCompilerCommand(std::string inputcfile, std::string outputcfile) {
         std::ifstream configFile("config.elc");
         std::string line, compilerCommand;
         if (!configFile.is_open()) {
@@ -68,8 +68,8 @@ public:
         }
     }
 
-    void compileToBinary() {
-        std::string command = getCompilerCommand();
+    void compileToBinary(std::string inputcfile, std::string outputcfile) {
+        std::string command = getCompilerCommand(inputcfile, outputcfile);
         int result = system(command.c_str());
         if (result != 0) {
             std::cerr << "Failed to compile C++ code to binary." << std::endl;
@@ -90,7 +90,7 @@ private:
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        std::cerr << "Usage: " << argv[0] << " <input file> <output C++ file>" << std::endl;
+        std::cerr << "Usage: " << argv[0] << " <input file> <output Binary file>" << std::endl;
         return 1;
     }
 
@@ -108,9 +108,9 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    Compiler compiler(argv[1], argv[2]);
+    Compiler compiler(argv[1], argv[1]+std::string(".cpp") );
     compiler.compileFile();
-    compiler.compileToBinary();
+    compiler.compileToBinary(argv[1]+std::string(".cpp"), argv[2]);
 
     return 0;
 }
