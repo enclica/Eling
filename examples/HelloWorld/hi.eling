@@ -1,0 +1,6 @@
+explicit class Main(){
+    Operation Main(arg[]){
+        Print("Hello World! I'm ELING.");
+
+    }
+}

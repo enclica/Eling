@@ -1,2 +1,0 @@
-CC=g++ -o $output $input
-PLAT=linux
