@@ -3,3 +3,4 @@ src/Compiler/bin/
 src/Compiler/obj/
 *.obj
 */bin/*
+src/Baton_server/node_modules/
