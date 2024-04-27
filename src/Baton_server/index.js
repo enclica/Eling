@@ -2,13 +2,32 @@ const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
 const { config } = require('process');
-const { generateHTMLPage, generatesearchpageHTMLPage } = require('./pages');
+const { generateHTMLPage,generatenosearchpageHTMLPage, generatesearchpageHTMLPage,generateHTMLPagedefaultpackages } = require('./pages');
 const app = express();
 const port = 3000;
 
 //allow downloading of files from packages
 app.use('/packages', express.static(path.join(__dirname, 'packages')));
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+
+
+//change any html from the public folder with anything with ${} to its value
+app.get('/public/:filename', async (req, res) => {
+  const filename = req.params.filename;
+  const filePath = path.join(__dirname, 'public', filename);
+  const fileContent = await fs.readFile
+  (filePath, 'utf8');
+  const configPath = path.join(__dirname, 'config', 'batonpm.json');
+  const configData =  await fs.readFile(configPath);
+  const configJson = JSON.parse(configData);
+  const replacedContent = fileContent.replace(/\${(.*?)}/g, (match, key) => {
+    return configJson[key] || '';
+  });
+  res.type('html').send(replacedContent);
+});
+
+
+
 
 
 
@@ -37,16 +56,38 @@ app.get('/search', async (req, res) => {
   const configData =  await fs.readFile(configPath);
   const configJson = JSON.parse(configData);
   if (jsonpackages.length === 0) {
-    res.type('html').send('No search results found');
+    if (req.accepts('html')) {
+      res.type('html').send(generatenosearchpageHTMLPage(configJson));
+    } else {
+      res.json([]);
+    }
   } else {
-    res.type('html').send(generatesearchpageHTMLPage(jsonpackages,configJson));
+    if (req.accepts('html')) {
+      res.type('html').send(generatesearchpageHTMLPage(jsonpackages,configJson));
+    } else {
+      res.json(jsonpackages);
+    }
   }
 });
 app.get('/packages/', async (req, res) => {
-
-
-  res.type('html').send('Please enter a package name in the URL or goto <a href="/search">/search</a> to search for packages');
-
+  const configPath = path.join(__dirname, 'config', 'batonpm.json');
+  const configData =  await fs.readFile(configPath);
+  const configJson = JSON.parse(configData);
+  const packagesDir = path.join(__dirname, 'packages');
+  const packages = await fs.readdir(packagesDir);
+  const packageList = [];
+  for (let i = 0; i < 30 && i < packages.length; i++) {
+    const packageName = packages[i];
+    const packagePath = path.join(packagesDir, packageName, 'bpackage.json');
+    const packageJson = await fs.readFile(packagePath);
+    const packjson = JSON.parse(packageJson);
+    packageList.push(packjson);
+  }
+  if(req.accepts('html')){
+    res.type('html').send(generateHTMLPagedefaultpackages(packageList,configJson));
+  }else{
+  res.json(packageList);
+  }
 });
 app.get('/packages/:packageName', async (req, res) => {
   const packageName = req.params.packageName;
