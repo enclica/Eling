@@ -1,0 +1,21 @@
+{
+    "sitename": "Baton PM",
+    "navbar":[
+        {
+            "title": "Home",
+            "url": "/"
+        },
+        {
+            "title": "Packages",
+            "url": "/packages"
+        },
+       {
+            "title": "About",
+            "url": "/about"
+        },
+       {
+            "title": "Search Packages",
+            "url": "/search"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "Filesystem",
+    "version": "1.0.0",
+    "description": "A simple filesystem package for the Eling programming language.",
+    "author": "Enclica Software",
+    "files": [
+      "filesystem.zip"
+    ],
+    "keywords": [
+      "filesystem",
+      "file",
+      "directory",
+      "path"
+    ],
+    "dependencies": {
+      "eling": "1.0.0"
+    },
+    "eling":{
+      "1.0.0": "filesystem.zip"
+    }
+}
+  
