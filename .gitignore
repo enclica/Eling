@@ -1,3 +1,5 @@
 
 src/Compiler/bin/
 src/Compiler/obj/
+*.obj
+*/bin/*
