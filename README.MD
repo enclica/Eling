@@ -41,23 +41,3 @@ We have a few examples in the eling examples folder.
 packages in ELING is handled by Baton in a folder called the Baton_libs which handles both c++ and eling libraries which allows for flexibility but also makes it harder to debug if something goes wrong
 
 
-# ELING TOOK ALL MY RAM
-
-did you modify the eling compiler, expect it, did you not, sorry reprt a issue an we will look into it.
-
-# ELING OUTPUTTED THIS
-
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-Token type: 15, value: :
-
-your eling program is written wrong, if its an example, then its outdated and again report as an issue.
